@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/provider/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const HabitTracker());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => ThemeProvider(),
+      child: const HabitTracker(),
+      builder: (context, child) => const HabitTracker(),
+    ),
+  );
 }
 
 class HabitTracker extends StatelessWidget {
