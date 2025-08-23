@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/provider/theme_provider.dart';
+import 'package:myapp/screens/home_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -18,6 +19,10 @@ class HabitTracker extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false);
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: Provider.of<ThemeProvider>(context).themeData,
+      home: HomePage(),
+    );
   }
 }
