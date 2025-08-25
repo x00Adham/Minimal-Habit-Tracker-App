@@ -9,13 +9,13 @@ part of 'appsetting_mode.dart';
 // coverage:ignore-file
 // ignore_for_file: duplicate_ignore, non_constant_identifier_names, constant_identifier_names, invalid_use_of_protected_member, unnecessary_cast, prefer_const_constructors, lines_longer_than_80_chars, require_trailing_commas, inference_failure_on_function_invocation, unnecessary_parenthesis, unnecessary_raw_strings, unnecessary_null_checks, join_return_with_assignment, prefer_final_locals, avoid_js_rounded_ints, avoid_positional_boolean_parameters, always_specify_types
 
-extension GetAppsettingModeCollection on Isar {
-  IsarCollection<AppsettingMode> get appsettingModes => this.collection();
+extension GetAppsettingsCollection on Isar {
+  IsarCollection<Appsettings> get appsettings => this.collection();
 }
 
-const AppsettingModeSchema = CollectionSchema(
-  name: r'AppsettingMode',
-  id: 6124346386491781165,
+const AppsettingsSchema = CollectionSchema(
+  name: r'Appsettings',
+  id: -6817349045252856205,
   properties: {
     r'firstlaunch': PropertySchema(
       id: 0,
@@ -23,22 +23,22 @@ const AppsettingModeSchema = CollectionSchema(
       type: IsarType.dateTime,
     )
   },
-  estimateSize: _appsettingModeEstimateSize,
-  serialize: _appsettingModeSerialize,
-  deserialize: _appsettingModeDeserialize,
-  deserializeProp: _appsettingModeDeserializeProp,
+  estimateSize: _appsettingsEstimateSize,
+  serialize: _appsettingsSerialize,
+  deserialize: _appsettingsDeserialize,
+  deserializeProp: _appsettingsDeserializeProp,
   idName: r'id',
   indexes: {},
   links: {},
   embeddedSchemas: {},
-  getId: _appsettingModeGetId,
-  getLinks: _appsettingModeGetLinks,
-  attach: _appsettingModeAttach,
+  getId: _appsettingsGetId,
+  getLinks: _appsettingsGetLinks,
+  attach: _appsettingsAttach,
   version: '3.1.0+1',
 );
 
-int _appsettingModeEstimateSize(
-  AppsettingMode object,
+int _appsettingsEstimateSize(
+  Appsettings object,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
@@ -46,8 +46,8 @@ int _appsettingModeEstimateSize(
   return bytesCount;
 }
 
-void _appsettingModeSerialize(
-  AppsettingMode object,
+void _appsettingsSerialize(
+  Appsettings object,
   IsarWriter writer,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
@@ -55,19 +55,19 @@ void _appsettingModeSerialize(
   writer.writeDateTime(offsets[0], object.firstlaunch);
 }
 
-AppsettingMode _appsettingModeDeserialize(
+Appsettings _appsettingsDeserialize(
   Id id,
   IsarReader reader,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  final object = AppsettingMode();
+  final object = Appsettings();
   object.firstlaunch = reader.readDateTimeOrNull(offsets[0]);
   object.id = id;
   return object;
 }
 
-P _appsettingModeDeserializeProp<P>(
+P _appsettingsDeserializeProp<P>(
   IsarReader reader,
   int propertyId,
   int offset,
@@ -81,32 +81,31 @@ P _appsettingModeDeserializeProp<P>(
   }
 }
 
-Id _appsettingModeGetId(AppsettingMode object) {
+Id _appsettingsGetId(Appsettings object) {
   return object.id;
 }
 
-List<IsarLinkBase<dynamic>> _appsettingModeGetLinks(AppsettingMode object) {
+List<IsarLinkBase<dynamic>> _appsettingsGetLinks(Appsettings object) {
   return [];
 }
 
-void _appsettingModeAttach(
-    IsarCollection<dynamic> col, Id id, AppsettingMode object) {
+void _appsettingsAttach(
+    IsarCollection<dynamic> col, Id id, Appsettings object) {
   object.id = id;
 }
 
-extension AppsettingModeQueryWhereSort
-    on QueryBuilder<AppsettingMode, AppsettingMode, QWhere> {
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterWhere> anyId() {
+extension AppsettingsQueryWhereSort
+    on QueryBuilder<Appsettings, Appsettings, QWhere> {
+  QueryBuilder<Appsettings, Appsettings, QAfterWhere> anyId() {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(const IdWhereClause.any());
     });
   }
 }
 
-extension AppsettingModeQueryWhere
-    on QueryBuilder<AppsettingMode, AppsettingMode, QWhereClause> {
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterWhereClause> idEqualTo(
-      Id id) {
+extension AppsettingsQueryWhere
+    on QueryBuilder<Appsettings, Appsettings, QWhereClause> {
+  QueryBuilder<Appsettings, Appsettings, QAfterWhereClause> idEqualTo(Id id) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(IdWhereClause.between(
         lower: id,
@@ -115,7 +114,7 @@ extension AppsettingModeQueryWhere
     });
   }
 
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterWhereClause> idNotEqualTo(
+  QueryBuilder<Appsettings, Appsettings, QAfterWhereClause> idNotEqualTo(
       Id id) {
     return QueryBuilder.apply(this, (query) {
       if (query.whereSort == Sort.asc) {
@@ -138,8 +137,7 @@ extension AppsettingModeQueryWhere
     });
   }
 
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterWhereClause> idGreaterThan(
-      Id id,
+  QueryBuilder<Appsettings, Appsettings, QAfterWhereClause> idGreaterThan(Id id,
       {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(
@@ -148,8 +146,7 @@ extension AppsettingModeQueryWhere
     });
   }
 
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterWhereClause> idLessThan(
-      Id id,
+  QueryBuilder<Appsettings, Appsettings, QAfterWhereClause> idLessThan(Id id,
       {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(
@@ -158,7 +155,7 @@ extension AppsettingModeQueryWhere
     });
   }
 
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterWhereClause> idBetween(
+  QueryBuilder<Appsettings, Appsettings, QAfterWhereClause> idBetween(
     Id lowerId,
     Id upperId, {
     bool includeLower = true,
@@ -175,9 +172,9 @@ extension AppsettingModeQueryWhere
   }
 }
 
-extension AppsettingModeQueryFilter
-    on QueryBuilder<AppsettingMode, AppsettingMode, QFilterCondition> {
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterFilterCondition>
+extension AppsettingsQueryFilter
+    on QueryBuilder<Appsettings, Appsettings, QFilterCondition> {
+  QueryBuilder<Appsettings, Appsettings, QAfterFilterCondition>
       firstlaunchIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
@@ -186,7 +183,7 @@ extension AppsettingModeQueryFilter
     });
   }
 
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterFilterCondition>
+  QueryBuilder<Appsettings, Appsettings, QAfterFilterCondition>
       firstlaunchIsNotNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNotNull(
@@ -195,7 +192,7 @@ extension AppsettingModeQueryFilter
     });
   }
 
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterFilterCondition>
+  QueryBuilder<Appsettings, Appsettings, QAfterFilterCondition>
       firstlaunchEqualTo(DateTime? value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -205,7 +202,7 @@ extension AppsettingModeQueryFilter
     });
   }
 
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterFilterCondition>
+  QueryBuilder<Appsettings, Appsettings, QAfterFilterCondition>
       firstlaunchGreaterThan(
     DateTime? value, {
     bool include = false,
@@ -219,7 +216,7 @@ extension AppsettingModeQueryFilter
     });
   }
 
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterFilterCondition>
+  QueryBuilder<Appsettings, Appsettings, QAfterFilterCondition>
       firstlaunchLessThan(
     DateTime? value, {
     bool include = false,
@@ -233,7 +230,7 @@ extension AppsettingModeQueryFilter
     });
   }
 
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterFilterCondition>
+  QueryBuilder<Appsettings, Appsettings, QAfterFilterCondition>
       firstlaunchBetween(
     DateTime? lower,
     DateTime? upper, {
@@ -251,7 +248,7 @@ extension AppsettingModeQueryFilter
     });
   }
 
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterFilterCondition> idEqualTo(
+  QueryBuilder<Appsettings, Appsettings, QAfterFilterCondition> idEqualTo(
       Id value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -261,8 +258,7 @@ extension AppsettingModeQueryFilter
     });
   }
 
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterFilterCondition>
-      idGreaterThan(
+  QueryBuilder<Appsettings, Appsettings, QAfterFilterCondition> idGreaterThan(
     Id value, {
     bool include = false,
   }) {
@@ -275,8 +271,7 @@ extension AppsettingModeQueryFilter
     });
   }
 
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterFilterCondition>
-      idLessThan(
+  QueryBuilder<Appsettings, Appsettings, QAfterFilterCondition> idLessThan(
     Id value, {
     bool include = false,
   }) {
@@ -289,7 +284,7 @@ extension AppsettingModeQueryFilter
     });
   }
 
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterFilterCondition> idBetween(
+  QueryBuilder<Appsettings, Appsettings, QAfterFilterCondition> idBetween(
     Id lower,
     Id upper, {
     bool includeLower = true,
@@ -307,78 +302,72 @@ extension AppsettingModeQueryFilter
   }
 }
 
-extension AppsettingModeQueryObject
-    on QueryBuilder<AppsettingMode, AppsettingMode, QFilterCondition> {}
+extension AppsettingsQueryObject
+    on QueryBuilder<Appsettings, Appsettings, QFilterCondition> {}
 
-extension AppsettingModeQueryLinks
-    on QueryBuilder<AppsettingMode, AppsettingMode, QFilterCondition> {}
+extension AppsettingsQueryLinks
+    on QueryBuilder<Appsettings, Appsettings, QFilterCondition> {}
 
-extension AppsettingModeQuerySortBy
-    on QueryBuilder<AppsettingMode, AppsettingMode, QSortBy> {
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterSortBy>
-      sortByFirstlaunch() {
+extension AppsettingsQuerySortBy
+    on QueryBuilder<Appsettings, Appsettings, QSortBy> {
+  QueryBuilder<Appsettings, Appsettings, QAfterSortBy> sortByFirstlaunch() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'firstlaunch', Sort.asc);
     });
   }
 
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterSortBy>
-      sortByFirstlaunchDesc() {
+  QueryBuilder<Appsettings, Appsettings, QAfterSortBy> sortByFirstlaunchDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'firstlaunch', Sort.desc);
     });
   }
 }
 
-extension AppsettingModeQuerySortThenBy
-    on QueryBuilder<AppsettingMode, AppsettingMode, QSortThenBy> {
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterSortBy>
-      thenByFirstlaunch() {
+extension AppsettingsQuerySortThenBy
+    on QueryBuilder<Appsettings, Appsettings, QSortThenBy> {
+  QueryBuilder<Appsettings, Appsettings, QAfterSortBy> thenByFirstlaunch() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'firstlaunch', Sort.asc);
     });
   }
 
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterSortBy>
-      thenByFirstlaunchDesc() {
+  QueryBuilder<Appsettings, Appsettings, QAfterSortBy> thenByFirstlaunchDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'firstlaunch', Sort.desc);
     });
   }
 
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterSortBy> thenById() {
+  QueryBuilder<Appsettings, Appsettings, QAfterSortBy> thenById() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.asc);
     });
   }
 
-  QueryBuilder<AppsettingMode, AppsettingMode, QAfterSortBy> thenByIdDesc() {
+  QueryBuilder<Appsettings, Appsettings, QAfterSortBy> thenByIdDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.desc);
     });
   }
 }
 
-extension AppsettingModeQueryWhereDistinct
-    on QueryBuilder<AppsettingMode, AppsettingMode, QDistinct> {
-  QueryBuilder<AppsettingMode, AppsettingMode, QDistinct>
-      distinctByFirstlaunch() {
+extension AppsettingsQueryWhereDistinct
+    on QueryBuilder<Appsettings, Appsettings, QDistinct> {
+  QueryBuilder<Appsettings, Appsettings, QDistinct> distinctByFirstlaunch() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'firstlaunch');
     });
   }
 }
 
-extension AppsettingModeQueryProperty
-    on QueryBuilder<AppsettingMode, AppsettingMode, QQueryProperty> {
-  QueryBuilder<AppsettingMode, int, QQueryOperations> idProperty() {
+extension AppsettingsQueryProperty
+    on QueryBuilder<Appsettings, Appsettings, QQueryProperty> {
+  QueryBuilder<Appsettings, int, QQueryOperations> idProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'id');
     });
   }
 
-  QueryBuilder<AppsettingMode, DateTime?, QQueryOperations>
-      firstlaunchProperty() {
+  QueryBuilder<Appsettings, DateTime?, QQueryOperations> firstlaunchProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'firstlaunch');
     });
