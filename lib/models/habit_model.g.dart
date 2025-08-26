@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'habbit_model.dart';
+part of 'habit_model.dart';
 
 // **************************************************************************
 // IsarCollectionGenerator
@@ -9,13 +9,13 @@ part of 'habbit_model.dart';
 // coverage:ignore-file
 // ignore_for_file: duplicate_ignore, non_constant_identifier_names, constant_identifier_names, invalid_use_of_protected_member, unnecessary_cast, prefer_const_constructors, lines_longer_than_80_chars, require_trailing_commas, inference_failure_on_function_invocation, unnecessary_parenthesis, unnecessary_raw_strings, unnecessary_null_checks, join_return_with_assignment, prefer_final_locals, avoid_js_rounded_ints, avoid_positional_boolean_parameters, always_specify_types
 
-extension GetHabbitModelCollection on Isar {
-  IsarCollection<HabbitModel> get habbitModels => this.collection();
+extension GetHabitModelCollection on Isar {
+  IsarCollection<HabitModel> get habitModels => this.collection();
 }
 
-const HabbitModelSchema = CollectionSchema(
-  name: r'HabbitModel',
-  id: 2307566375290303903,
+const HabitModelSchema = CollectionSchema(
+  name: r'HabitModel',
+  id: -414673950888729972,
   properties: {
     r'completedDays': PropertySchema(
       id: 0,
@@ -28,22 +28,22 @@ const HabbitModelSchema = CollectionSchema(
       type: IsarType.string,
     )
   },
-  estimateSize: _habbitModelEstimateSize,
-  serialize: _habbitModelSerialize,
-  deserialize: _habbitModelDeserialize,
-  deserializeProp: _habbitModelDeserializeProp,
+  estimateSize: _habitModelEstimateSize,
+  serialize: _habitModelSerialize,
+  deserialize: _habitModelDeserialize,
+  deserializeProp: _habitModelDeserializeProp,
   idName: r'id',
   indexes: {},
   links: {},
   embeddedSchemas: {},
-  getId: _habbitModelGetId,
-  getLinks: _habbitModelGetLinks,
-  attach: _habbitModelAttach,
+  getId: _habitModelGetId,
+  getLinks: _habitModelGetLinks,
+  attach: _habitModelAttach,
   version: '3.1.0+1',
 );
 
-int _habbitModelEstimateSize(
-  HabbitModel object,
+int _habitModelEstimateSize(
+  HabitModel object,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
@@ -53,8 +53,8 @@ int _habbitModelEstimateSize(
   return bytesCount;
 }
 
-void _habbitModelSerialize(
-  HabbitModel object,
+void _habitModelSerialize(
+  HabitModel object,
   IsarWriter writer,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
@@ -63,21 +63,20 @@ void _habbitModelSerialize(
   writer.writeString(offsets[1], object.name);
 }
 
-HabbitModel _habbitModelDeserialize(
+HabitModel _habitModelDeserialize(
   Id id,
   IsarReader reader,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  final object = HabbitModel(
-    name: reader.readString(offsets[1]),
-  );
+  final object = HabitModel();
   object.completedDays = reader.readDateTimeList(offsets[0]) ?? [];
   object.id = id;
+  object.name = reader.readString(offsets[1]);
   return object;
 }
 
-P _habbitModelDeserializeProp<P>(
+P _habitModelDeserializeProp<P>(
   IsarReader reader,
   int propertyId,
   int offset,
@@ -93,31 +92,30 @@ P _habbitModelDeserializeProp<P>(
   }
 }
 
-Id _habbitModelGetId(HabbitModel object) {
+Id _habitModelGetId(HabitModel object) {
   return object.id;
 }
 
-List<IsarLinkBase<dynamic>> _habbitModelGetLinks(HabbitModel object) {
+List<IsarLinkBase<dynamic>> _habitModelGetLinks(HabitModel object) {
   return [];
 }
 
-void _habbitModelAttach(
-    IsarCollection<dynamic> col, Id id, HabbitModel object) {
+void _habitModelAttach(IsarCollection<dynamic> col, Id id, HabitModel object) {
   object.id = id;
 }
 
-extension HabbitModelQueryWhereSort
-    on QueryBuilder<HabbitModel, HabbitModel, QWhere> {
-  QueryBuilder<HabbitModel, HabbitModel, QAfterWhere> anyId() {
+extension HabitModelQueryWhereSort
+    on QueryBuilder<HabitModel, HabitModel, QWhere> {
+  QueryBuilder<HabitModel, HabitModel, QAfterWhere> anyId() {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(const IdWhereClause.any());
     });
   }
 }
 
-extension HabbitModelQueryWhere
-    on QueryBuilder<HabbitModel, HabbitModel, QWhereClause> {
-  QueryBuilder<HabbitModel, HabbitModel, QAfterWhereClause> idEqualTo(Id id) {
+extension HabitModelQueryWhere
+    on QueryBuilder<HabitModel, HabitModel, QWhereClause> {
+  QueryBuilder<HabitModel, HabitModel, QAfterWhereClause> idEqualTo(Id id) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(IdWhereClause.between(
         lower: id,
@@ -126,8 +124,7 @@ extension HabbitModelQueryWhere
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterWhereClause> idNotEqualTo(
-      Id id) {
+  QueryBuilder<HabitModel, HabitModel, QAfterWhereClause> idNotEqualTo(Id id) {
     return QueryBuilder.apply(this, (query) {
       if (query.whereSort == Sort.asc) {
         return query
@@ -149,7 +146,7 @@ extension HabbitModelQueryWhere
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterWhereClause> idGreaterThan(Id id,
+  QueryBuilder<HabitModel, HabitModel, QAfterWhereClause> idGreaterThan(Id id,
       {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(
@@ -158,7 +155,7 @@ extension HabbitModelQueryWhere
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterWhereClause> idLessThan(Id id,
+  QueryBuilder<HabitModel, HabitModel, QAfterWhereClause> idLessThan(Id id,
       {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(
@@ -167,7 +164,7 @@ extension HabbitModelQueryWhere
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterWhereClause> idBetween(
+  QueryBuilder<HabitModel, HabitModel, QAfterWhereClause> idBetween(
     Id lowerId,
     Id upperId, {
     bool includeLower = true,
@@ -184,9 +181,9 @@ extension HabbitModelQueryWhere
   }
 }
 
-extension HabbitModelQueryFilter
-    on QueryBuilder<HabbitModel, HabbitModel, QFilterCondition> {
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition>
+extension HabitModelQueryFilter
+    on QueryBuilder<HabitModel, HabitModel, QFilterCondition> {
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition>
       completedDaysElementEqualTo(DateTime value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -196,7 +193,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition>
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition>
       completedDaysElementGreaterThan(
     DateTime value, {
     bool include = false,
@@ -210,7 +207,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition>
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition>
       completedDaysElementLessThan(
     DateTime value, {
     bool include = false,
@@ -224,7 +221,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition>
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition>
       completedDaysElementBetween(
     DateTime lower,
     DateTime upper, {
@@ -242,7 +239,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition>
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition>
       completedDaysLengthEqualTo(int length) {
     return QueryBuilder.apply(this, (query) {
       return query.listLength(
@@ -255,7 +252,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition>
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition>
       completedDaysIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.listLength(
@@ -268,7 +265,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition>
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition>
       completedDaysIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.listLength(
@@ -281,7 +278,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition>
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition>
       completedDaysLengthLessThan(
     int length, {
     bool include = false,
@@ -297,7 +294,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition>
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition>
       completedDaysLengthGreaterThan(
     int length, {
     bool include = false,
@@ -313,7 +310,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition>
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition>
       completedDaysLengthBetween(
     int lower,
     int upper, {
@@ -331,7 +328,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition> idEqualTo(
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition> idEqualTo(
       Id value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -341,7 +338,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition> idGreaterThan(
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition> idGreaterThan(
     Id value, {
     bool include = false,
   }) {
@@ -354,7 +351,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition> idLessThan(
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition> idLessThan(
     Id value, {
     bool include = false,
   }) {
@@ -367,7 +364,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition> idBetween(
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition> idBetween(
     Id lower,
     Id upper, {
     bool includeLower = true,
@@ -384,7 +381,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition> nameEqualTo(
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition> nameEqualTo(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -397,7 +394,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition> nameGreaterThan(
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition> nameGreaterThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -412,7 +409,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition> nameLessThan(
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition> nameLessThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -427,7 +424,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition> nameBetween(
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition> nameBetween(
     String lower,
     String upper, {
     bool includeLower = true,
@@ -446,7 +443,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition> nameStartsWith(
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition> nameStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -459,7 +456,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition> nameEndsWith(
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition> nameEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -472,7 +469,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition> nameContains(
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition> nameContains(
       String value,
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
@@ -484,7 +481,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition> nameMatches(
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition> nameMatches(
       String pattern,
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
@@ -496,7 +493,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition> nameIsEmpty() {
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition> nameIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'name',
@@ -505,8 +502,7 @@ extension HabbitModelQueryFilter
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterFilterCondition>
-      nameIsNotEmpty() {
+  QueryBuilder<HabitModel, HabitModel, QAfterFilterCondition> nameIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         property: r'name',
@@ -516,63 +512,63 @@ extension HabbitModelQueryFilter
   }
 }
 
-extension HabbitModelQueryObject
-    on QueryBuilder<HabbitModel, HabbitModel, QFilterCondition> {}
+extension HabitModelQueryObject
+    on QueryBuilder<HabitModel, HabitModel, QFilterCondition> {}
 
-extension HabbitModelQueryLinks
-    on QueryBuilder<HabbitModel, HabbitModel, QFilterCondition> {}
+extension HabitModelQueryLinks
+    on QueryBuilder<HabitModel, HabitModel, QFilterCondition> {}
 
-extension HabbitModelQuerySortBy
-    on QueryBuilder<HabbitModel, HabbitModel, QSortBy> {
-  QueryBuilder<HabbitModel, HabbitModel, QAfterSortBy> sortByName() {
+extension HabitModelQuerySortBy
+    on QueryBuilder<HabitModel, HabitModel, QSortBy> {
+  QueryBuilder<HabitModel, HabitModel, QAfterSortBy> sortByName() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'name', Sort.asc);
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterSortBy> sortByNameDesc() {
+  QueryBuilder<HabitModel, HabitModel, QAfterSortBy> sortByNameDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'name', Sort.desc);
     });
   }
 }
 
-extension HabbitModelQuerySortThenBy
-    on QueryBuilder<HabbitModel, HabbitModel, QSortThenBy> {
-  QueryBuilder<HabbitModel, HabbitModel, QAfterSortBy> thenById() {
+extension HabitModelQuerySortThenBy
+    on QueryBuilder<HabitModel, HabitModel, QSortThenBy> {
+  QueryBuilder<HabitModel, HabitModel, QAfterSortBy> thenById() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.asc);
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterSortBy> thenByIdDesc() {
+  QueryBuilder<HabitModel, HabitModel, QAfterSortBy> thenByIdDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.desc);
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterSortBy> thenByName() {
+  QueryBuilder<HabitModel, HabitModel, QAfterSortBy> thenByName() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'name', Sort.asc);
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QAfterSortBy> thenByNameDesc() {
+  QueryBuilder<HabitModel, HabitModel, QAfterSortBy> thenByNameDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'name', Sort.desc);
     });
   }
 }
 
-extension HabbitModelQueryWhereDistinct
-    on QueryBuilder<HabbitModel, HabbitModel, QDistinct> {
-  QueryBuilder<HabbitModel, HabbitModel, QDistinct> distinctByCompletedDays() {
+extension HabitModelQueryWhereDistinct
+    on QueryBuilder<HabitModel, HabitModel, QDistinct> {
+  QueryBuilder<HabitModel, HabitModel, QDistinct> distinctByCompletedDays() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'completedDays');
     });
   }
 
-  QueryBuilder<HabbitModel, HabbitModel, QDistinct> distinctByName(
+  QueryBuilder<HabitModel, HabitModel, QDistinct> distinctByName(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'name', caseSensitive: caseSensitive);
@@ -580,22 +576,22 @@ extension HabbitModelQueryWhereDistinct
   }
 }
 
-extension HabbitModelQueryProperty
-    on QueryBuilder<HabbitModel, HabbitModel, QQueryProperty> {
-  QueryBuilder<HabbitModel, int, QQueryOperations> idProperty() {
+extension HabitModelQueryProperty
+    on QueryBuilder<HabitModel, HabitModel, QQueryProperty> {
+  QueryBuilder<HabitModel, int, QQueryOperations> idProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'id');
     });
   }
 
-  QueryBuilder<HabbitModel, List<DateTime>, QQueryOperations>
+  QueryBuilder<HabitModel, List<DateTime>, QQueryOperations>
       completedDaysProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'completedDays');
     });
   }
 
-  QueryBuilder<HabbitModel, String, QQueryOperations> nameProperty() {
+  QueryBuilder<HabitModel, String, QQueryOperations> nameProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'name');
     });
