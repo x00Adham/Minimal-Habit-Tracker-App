@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/database/database.dart';
 import 'package:myapp/provider/theme_provider.dart';
 import 'package:myapp/screens/home_page.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized;
+  await Database.initialize();
+  Database().getFirstDay;
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => ThemeProvider(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => Database()),
+        ChangeNotifierProvider(create: (context) => ThemeProvider())
+
+      ],
+     
       child: const HabitTracker(),
       builder: (context, child) => const HabitTracker(),
     ),
