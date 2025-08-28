@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/provider/theme_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:myapp/widgets/my_drawer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -14,14 +12,11 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
-      drawer: Drawer(
-        backgroundColor: Theme.of(context).colorScheme.surface,
-        child: CupertinoSwitch(
-          value: Provider.of<ThemeProvider>(context).isDrarkMode,
-          onChanged: (value) {
-            Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
-          },
-        ),
+      drawer: MyBrawer(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: null,
+        backgroundColor: Theme.of(context).colorScheme.tertiary,
+        child: Icon(Icons.add),
       ),
     );
   }
