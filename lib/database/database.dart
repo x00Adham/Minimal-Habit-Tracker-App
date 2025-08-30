@@ -107,8 +107,8 @@ class Database extends ChangeNotifier {
     if (habit != null) {
       // update name
       habit.name = newName;
-      //savve to the database
-      await isar.habitModels.put(habit);
+      //save to the database
+      await isar.writeTxn(() => isar.habitModels.put(habit));
     }
     readAllHabits();
   }
