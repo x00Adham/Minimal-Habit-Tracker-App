@@ -5,19 +5,16 @@ import 'package:myapp/screens/home_page.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized;
+  WidgetsFlutterBinding.ensureInitialized();
   await Database.initialize();
-  Database().getFirstDay;
+
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => Database()),
-        ChangeNotifierProvider(create: (context) => ThemeProvider())
-
+        ChangeNotifierProvider(create: (context) => ThemeProvider()),
       ],
-     
       child: const HabitTracker(),
-      builder: (context, child) => const HabitTracker(),
     ),
   );
 }

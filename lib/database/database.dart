@@ -5,12 +5,12 @@ import 'package:myapp/models/habit_model.dart';
 import 'package:path_provider/path_provider.dart';
 
 class Database extends ChangeNotifier {
-  late Isar isar;
+  static late Isar isar;
 
   //intilize the database
   static Future<void> initialize() async {
     final dir = await getApplicationDocumentsDirectory();
-    await Isar.open([
+    isar = await Isar.open([
       AppsettingsSchema,
       HabitModelSchema,
     ], directory: dir.path);
@@ -18,7 +18,7 @@ class Database extends ChangeNotifier {
 
   //save firstday launch
   Future<void> saveFirstDay() async {
-    //query all the collection of the appsettings and find the frist day 
+    //query all the collection of the appsettings and find the frist day
     final extistingSetting = await isar.appsettings.where().findFirst();
 
     //if not exist add the time now to  the collection
@@ -70,30 +70,34 @@ class Database extends ChangeNotifier {
 
     //update completion status
     if (habit != null) {
-      isar.writeTxn(() async {
-        //
-        if (isCompleted && !habit.completedDays.contains(DateTime.now())) {
-          //add today to the completed days
-          final today = DateTime.now();
+      await isar.writeTxn(() async {
+        final today = DateTime(
+          DateTime.now().year,
+          DateTime.now().month,
+          DateTime.now().day,
+        );
 
-          habit.completedDays.add(DateTime(today.year, today.month, today.day));
-          //if the habit is not completed
+        if (isCompleted) {
+          // Add today to the completed days if not already present
+          if (!habit.completedDays.contains(today)) {
+            habit.completedDays.add(today);
+          }
         } else {
-          //remove today from the completed days
+          // Remove today from the completed days
           habit.completedDays.removeWhere(
             (date) =>
-                date.year == DateTime.now().year &&
-                date.month == DateTime.now().month &&
-                date.day == DateTime.now().day,
+                date.year == today.year &&
+                date.month == today.month &&
+                date.day == today.day,
           );
-
-          //save in the DB that is not completed
-          isar.habitModels.put(habit);
         }
+
+        // Save the updated habit to the database
+        await isar.habitModels.put(habit);
       });
     }
 
-    readAllHabits();
+    await readAllHabits();
   }
 
   //UPDATE =>  update the habit name
@@ -115,5 +119,5 @@ class Database extends ChangeNotifier {
     //delete the habit
     await isar.writeTxn(() => isar.habitModels.delete(id));
     readAllHabits();
-  } 
+  }
 }
