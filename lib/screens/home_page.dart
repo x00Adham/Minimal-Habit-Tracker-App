@@ -44,16 +44,21 @@ class _HomePageState extends State<HomePage> {
           ),
           TextButton(
             onPressed: () {
-              if (_habitNameController.text.isNotEmpty) {
+              if (_habitNameController.text.trim().isNotEmpty) {
                 //add the habit
                 Provider.of<Database>(
                   context,
                   listen: false,
-                ).createNewhabit(_habitNameController.text);
+                ).createNewhabit(_habitNameController.text.trim());
                 //close the dialog
                 Navigator.pop(context);
                 //clear the controller
                 _habitNameController.clear();
+              } else {
+                //show a snackbar
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text("Please enter a valid habit name")),
+                );
               }
             },
             child: Text(
@@ -154,11 +159,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Habit Tracker"),
-        centerTitle: true,
-        backgroundColor: Theme.of(context).colorScheme.primary,
-      ),
+      appBar: AppBar(backgroundColor: Colors.transparent),
       drawer: MyBrawer(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
