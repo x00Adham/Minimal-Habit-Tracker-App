@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/database/database.dart';
 import 'package:myapp/models/habit_model.dart';
+import 'package:myapp/utils/habit_util.dart';
 import 'package:myapp/widgets/habit_list_view.dart';
+import 'package:myapp/widgets/heat_map_widget.dart';
 import 'package:myapp/widgets/my_drawer.dart';
 import 'package:provider/provider.dart';
 
@@ -172,7 +174,34 @@ class _HomePageState extends State<HomePage> {
           size: 30,
         ),
       ),
-      body: HabitListView(onEdit: _editHabit, onDelete: _deleteHabit),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            _MyHeatMap(),
+            HabitListView(onEdit: _editHabit, onDelete: _deleteHabit),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _MyHeatMap() {
+    //access habit database
+    final habitdata = context.watch<Database>();
+
+    final List<HabitModel> currentHabits = habitdata.currentHabits;
+
+    return FutureBuilder(
+      future: habitdata.getFirstDay(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return HeatMapWidget(
+            startingDate: snapshot.data!,
+            datasets: perpDataSets(currentHabits),
+          );
+        } else
+          return Container();
+      },
     );
   }
 }
