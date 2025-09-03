@@ -5,7 +5,11 @@ import 'package:myapp/models/habit_model.dart';
 import 'package:provider/provider.dart';
 
 class HabitListView extends StatelessWidget {
-  const HabitListView({super.key, required this.onEdit, required this.onDelete});
+  const HabitListView({
+    super.key,
+    required this.onEdit,
+    required this.onDelete,
+  });
   final Function(HabitModel) onEdit;
   final Function(HabitModel) onDelete;
 
@@ -15,7 +19,6 @@ class HabitListView extends StatelessWidget {
 
     final List<HabitModel> currentHabits = database.currentHabits;
     return ListView.builder(
-      shrinkWrap: true,
       itemCount: currentHabits.length,
       itemBuilder: (context, index) {
         final habit = currentHabits[index];
@@ -71,10 +74,13 @@ class HabitListView extends StatelessWidget {
                     ),
                   ),
                   trailing: Checkbox(
+                    
+                    
                     value: isCompleted,
                     onChanged: (value) {
                       if (value != null) {
                         database.updateHabitCompleted(habit.id, value);
+                        
                       }
                     },
                     activeColor: Colors.green,

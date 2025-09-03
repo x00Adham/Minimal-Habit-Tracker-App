@@ -174,13 +174,13 @@ class _HomePageState extends State<HomePage> {
           size: 30,
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            _MyHeatMap(),
-            HabitListView(onEdit: _editHabit, onDelete: _deleteHabit),
-          ],
-        ),
+      body: Column(
+        children: [
+          _MyHeatMap(),
+          Expanded(
+            child: HabitListView(onEdit: _editHabit, onDelete: _deleteHabit),
+          ),
+        ],
       ),
     );
   }
@@ -199,8 +199,8 @@ class _HomePageState extends State<HomePage> {
             startingDate: snapshot.data!,
             datasets: perpDataSets(currentHabits),
           );
-        } else
-          return Container();
+        }
+        return Container(height: 200);
       },
     );
   }

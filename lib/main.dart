@@ -8,10 +8,14 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Database.initialize();
 
+  // Create initial app settings if they don't exist
+  final database = Database();
+  await database.saveFirstDay();
+
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => Database()),
+        ChangeNotifierProvider(create: (context) => database),
         ChangeNotifierProvider(create: (context) => ThemeProvider()),
       ],
       child: const HabitTracker(),
