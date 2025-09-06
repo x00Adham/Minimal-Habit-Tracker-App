@@ -17,14 +17,11 @@ A clean, simple, and efficient habit tracking mobile application built with Flut
 
 ## 📱 Screenshots
 
-<!-- Add screenshots here -->
-<!-- 
 <p align="center">
-  <img src="screenshots/home_light.jpeg" width="250" alt="Home Screen">
-  <img src="screenshots/home_dark.jpeg" width="250" alt="Add Habit">
-  <img src="screenshots/add_habit.jpeg" width="250" alt="Habit Details">
+  <img src="/screenshots/home_light.jpeg" width="250" alt="Home Screen">
+  <img src="/screenshots/home_dark.jpeg" width="250" alt="Home Screen dark">
+  <img src="/screenshots/add_habit.jpeg" width="250" alt="add habit">
 </p>
--->
 
 ## 🚀 Getting Started
 
