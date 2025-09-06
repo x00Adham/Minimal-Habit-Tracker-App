@@ -20,9 +20,9 @@ A clean, simple, and efficient habit tracking mobile application built with Flut
 <!-- Add screenshots here -->
 <!-- 
 <p align="center">
-  <img src="screenshots/home_screen.png" width="250" alt="Home Screen">
-  <img src="screenshots/add_habit.png" width="250" alt="Add Habit">
-  <img src="screenshots/habit_details.png" width="250" alt="Habit Details">
+  <img src="screenshots/home_light.jpeg" width="250" alt="Home Screen">
+  <img src="screenshots/home_dark.jpeg" width="250" alt="Add Habit">
+  <img src="screenshots/add_habit.jpeg" width="250" alt="Habit Details">
 </p>
 -->
 
@@ -149,31 +149,7 @@ dev_dependencies:
   flutter_lints: ^2.0.0     # Linting rules
 ```
 
-## 🎨 Customization
-
-### Themes
-
-The app supports both light and dark themes. You can customize colors in `lib/utils/themes.dart`:
-
-```dart
-// Example theme customization
-final ThemeData lightTheme = ThemeData(
-  primarySwatch: Colors.blue,
-  scaffoldBackgroundColor: Colors.grey[50],
-  // ... more theme properties
-);
-```
-
-### Colors
-
-Default color scheme:
-- Primary: Blue (`Colors.blue`)
-- Success: Green (`Colors.green`)
-- Background: Light Grey
-- Text: Dark Grey
-
-
 
 ---
 
-*Built with ❤️ using Flutter for better habit formation*
+*Built with ❤️ using Flutter*
